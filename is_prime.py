@@ -4,6 +4,9 @@ def is_prime(n):
     Returns:
     bool: True if the number is prime, False otherwise.
     """
+    if not isinstance(n, int) or n is None:
+        return False
+
     if n <= 1:
         return False
     if n <= 3:
