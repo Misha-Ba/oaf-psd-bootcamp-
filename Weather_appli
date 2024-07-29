@@ -1,0 +1,29 @@
+from abc import ABC, abstractmethod
+#Factory method
+class WeatherApplicationFactory(ABC):
+    @abstractmethod
+    def create_weather_application(self, city):
+        pass
+
+class WeatherApplication(ABC):
+    def __inition__(self, city):
+        self.city = city
+        self.temperature = None
+        self.humidity = None
+
+    @abstractmethod
+    def fetch_data(self, url):
+        pass
+
+    @abstractmethod
+    def parse_data(self, data):
+        pass
+
+    @abstractmethod
+    def update_weather_info(self):
+        pass
+
+    def display_weather_info(self):
+        print(f"City: {self.city}")
+        print(f"Temperature: {self.temperature}")
+        print(f"Humidity: {self.humidity}")
